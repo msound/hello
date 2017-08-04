@@ -5,12 +5,11 @@ language: go
 go:
 - 1.7.x
 env:
-  global:
-  - GOARCH=amd64
-  matrix:
-  - GOOS=linux
-  - GOOS=darwin
+- GOOS=linux GOARCH=amd64
+- GOOS=darwin GOARCH=amd64
 script:
+- echo "The value of GOOS is" $GOOS
+- echo "The value of GOARCH is" $GOARCH
 - go build -o bin/hello-$GOOS-$GOARCH
 deploy:
   provider: releases
