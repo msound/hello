@@ -1,21 +1,21 @@
 branches:
- only:
-   - /\d+\.\d+.*/
+  only:
+  - /\d+\.\d+.*/
 language: go
 go:
-  - 1.7.x
+- 1.7.x
 env:
   global:
-    - GOARCH=amd64
+  - GOARCH=amd64
   matrix:
-    - GOOS=linux
-    - GOOS=darwin
+  - GOOS=linux
+  - GOOS=darwin
 script:
-  - go build -o bin/hello-$GOOS-$GOARCH
+- go build -o bin/hello-$GOOS-$GOARCH
 deploy:
   provider: releases
   api_key:
-    secure: 
+    secure: U18+xvMZyAE9xnZX8k9DI5jnt3ehLiySCsoJPcDwR2l/jFh+/rizRTmoxSIdEaeuTFD2B7Gou4uU2WDdLIwGE8lHBspA0vO6lH508Vcmns2ayqVTN0pkaAATCdfxWL/FSGOfeD3mC3ZJ2BRy18ZvwWG9KumGs+9SOdqC8zLczKIpXWjDDzXRMbLW5BpnPfBaj6cDZUu8CLUQ7UDpJpi+WxIhRujfsyhsvo8iuVMet57+nB4pBaKm5kXB3F7/2PpztY3l9+328h3s0IurqZ4OgF1TfFK/zbp120QGGBrmSv20A4yQC4ogi+DnuBvHOVEWQazXCFFjjRh+fsKfYUubMtLfay/kAiB5yWLgNb6aRFUH++V2uKbrNYt8SrV/GfwXvEGESeEtTBrlBKgbmRb4e+rI/1IGg812Z9YhYZXoLz2OS/vcH15OfXY0hTeBXIGPt2THEi+qEFEEsUVTlPhQ7E+W+sd4pvz68iyhDYLSQK8KbPRXZ615DAdiG+KYJJ3DVRUyUkitiYe8Q1mmza0B1ZQsoNFR5I1eZZ0VDVdVts9eqe2fdmuBmc5BLFij3Qx98Wzm1Qfbu51ZhBVFjtfc4dMHFrqulG0VcRgwbH0NYwbn8FUOwn0dV95HGU36GitVleI4dbC3kn0aTY29p5B2jgO3DJG37gBWmxCGHZCYGn0=
   file_glob: true
   file: bin/*
   skip_cleanup: true
