@@ -5,12 +5,10 @@ language: go
 go:
 - 1.7.x
 env:
-- GOOS=linux GOARCH=amd64
-- GOOS=darwin GOARCH=amd64
+- GIMME_OS=linux GIMME_ARCH=amd64
+- GIMME_OS=darwin GIMME_ARCH=amd64
 script:
-- echo "The value of GOOS is" $GOOS
-- echo "The value of GOARCH is" $GOARCH
-- go build -o bin/hello-$GOOS-$GOARCH
+- go build -o bin/hello-$GIMME_OS-$GIMME_ARCH
 deploy:
   provider: releases
   api_key:
